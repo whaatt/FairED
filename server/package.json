@@ -1,0 +1,24 @@
+{
+  "name": "FairED",
+  "version": "0.0.0",
+  "description": "Promoting Fair Access To Higher Education",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/whaatt/FairED"
+  },
+  "keywords": [
+    "fair",
+    "college",
+    "education"
+  ],
+  "author": "Sanjay Kannan",
+  "license": "Tautology",
+  "bugs": {
+    "url": "https://github.com/whaatt/FairED/issues"
+  },
+  "homepage": "https://github.com/whaatt/FairED"
+}
