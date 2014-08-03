@@ -1,0 +1,7 @@
+public: sees all approved mentors
+    menu - FairED, Login, Register, Switch View, Filters
+mentor/mentees: sees admins, approved mentors, and approved mentees; edits personal profile
+    menu - FairED, Logout, Profile, Switch View, Filters
+admin: sees everything; edits everything
+    menu - FairED, Logout, Profile, Settings, Invite, Switch View, Filters
+    settings --> add regions, add clusters

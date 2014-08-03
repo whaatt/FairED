@@ -8,12 +8,14 @@ var session = require('express-session');
 
 //load request handler functions
 var users = require('./users.js');
-//var features = require('./features.js');
+var features = require('./features.js');
 
 //set up parameters
 var app = express();
 var router = express.Router();
-app.use(bodyParser.json());
+
+app.use(bodyParser.json()); //parse JSON body
+app.use(bodyParser.urlencoded({'extended' : true}));
 
 //create session
 app.use(session({ 
@@ -39,7 +41,7 @@ router.get('/', function (req, res) {
 });
 
 //get all approved mentors for displaying
-router.get('/users/mentors', function(req, res) {
+router.post('/users/mentors', function(req, res) {
     res.send(users.mentors.getApproved(req));
 });
 
@@ -64,23 +66,23 @@ router.get('/users/admins', function(req, res) {
 });
 
 //get individual users by their UUIDs
-router.get('/users/:id', function(req, res) {
-    res.send(users.getID(req.params.id));
+router.get('/users/:ID', function(req, res) {
+    res.send(users.getID(req.params.ID));
 });
 
 //edit individual users by their UUIDs
-router.put('/users/:id', function(req, res) {
-    res.send(users.editID(req.params.id));
+router.put('/users/:ID', function(req, res) {
+    res.send(users.editID(req.params.ID));
 });
 
 //edit individual users by their UUIDs
-router.delete('/users/:id', function(req, res) {
-    res.send(users.deleteID(req.params.id));
+router.delete('/users/:ID', function(req, res) {
+    res.send(users.deleteID(req.params.ID));
 });
 
 //register new user with code
-router.post('/users/:id/register', function(req, res) {
-    res.send(users.register(req, req.params.id));
+router.post('/users/:ID/register', function(req, res) {
+    res.send(users.register(req, req.params.ID));
 });
 
 //login user with provided credentials
@@ -106,6 +108,16 @@ router.post('/users/invite/mentor', function(req, res) {
 //send invite to future admins
 router.post('/users/invite/admin', function(req, res) {
     res.send(users.invite.newAdmin(req));
+});
+
+//get all currently pending invites
+router.get('/users/invite', function(req, res) {
+    res.send(users.invite.getPending(req));
+});
+
+//delete an invite by ID
+router.delete('/users/invite/:ID', function(req, res) {
+    res.send(users.invite.deleteID(req.params.ID));
 });
 
 //get autocomplete results for a given feature type

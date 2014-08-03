@@ -1,0 +1,6 @@
+Hello!
+
+Welcome to FairED. You are receiving this email because an administrator added you to our private counseling network in the role of {{role}}. Please register at <a href="http://faired.us">FairED.us</a> with the following unique ID: <b>{{ID}}</b>. If you believe you have received this message in error, please contact an administrator.
+
+Warm Regards,
+The FairED Team

@@ -1,0 +1,37 @@
+{
+  "name": "FairED",
+  "version": "0.0.0",
+  "description": "Promoting Fair Access To Higher Education",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/whaatt/FairED"
+  },
+  "keywords": [
+    "fair",
+    "college",
+    "education"
+  ],
+  "author": "Sanjay Kannan <whaatt@gmail.com> (http://skalon.com)",
+  "license": "Tautology",
+  "bugs": {
+    "url": "https://github.com/whaatt/FairED/issues"
+  },
+  "homepage": "https://github.com/whaatt/FairED",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  },
+  "dependencies": {
+    "body-parser": "^1.5.2",
+    "express": "^4.7.2",
+    "express-session": "^1.7.2",
+    "mustache": "^0.8.2",
+    "nedb": "^0.10.7",
+    "nodemailer": "^1.1.1",
+    "validator": "^3.16.1"
+  }
+}
