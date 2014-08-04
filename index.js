@@ -95,6 +95,11 @@ router.post('/users/logout', function(req, res) {
     res.send(users.logout(req));
 });
 
+//get a forgot my password email
+router.post('/users/forgot', function(req, res) {
+    res.send(users.forgot(req));
+});
+
 //send invite to future mentees
 router.post('/users/invite/mentee', function(req, res) {
     res.send(users.invite.newMentee(req));

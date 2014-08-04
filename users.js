@@ -58,10 +58,45 @@ module.exports = {
     },
     
     login : function(req) {
-    
+        if (req.session.state !== 'unauthorized') {
+            return response(false, {
+                'errors' : [error.alreadyAllowed]
+            });
+        }
+        
+        var target = { 
+            'username' : req.body.username,
+            'password' : req.body.password
+        }
+        
+        db.findOne(target, function(err, doc) {
+            if (err) {
+                return response(false, {
+                    'errors' : [error.database]
+                });
+            }
+            
+            if (doc === null) {
+                return response(false, {
+                    'errors' : [error.credentials]
+                });
+            }
+            
+            //session variable to user type
+            req.session.state = doc.type;
+            
+            return response(true, {
+                'name' : doc.name
+                'username' : doc.username
+            });
+        });
     },
     
     logout : function(req) {
+    
+    },
+    
+    forgot : function(req) {
     
     },
     

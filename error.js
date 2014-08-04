@@ -1,4 +1,6 @@
 module.exports = {
+    'alreadyAllowed' : 'You are already logged in!',
+    'credentials' : 'No user with those credentials was found. Please try again.',
     'database' : 'A database error occurred. Please try again.',
     'invalid' : function(parameter) { return 'Your entered ' + parameter + ' parameter is invalid.'; },
     'length' : function(parameter) { return 'Your ' + parameter + ' parameter is too long or too short.'; },
