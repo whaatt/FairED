@@ -6,6 +6,9 @@ module.exports = {
     'length' : function(parameter) { return 'Your ' + parameter + ' parameter is too long or too short.'; },
     'mail' : 'An error occurred while trying to send an email.',
     'missing' : function(parameter) { return 'You must enter the ' + parameter + ' parameter.'; },
+    'noSuchInvite' : 'No such pending invite exists. Please try again.',
     'notAdmin' : 'You must be an administrator to perform this action.',
-    'unknown' : 'An unknown error occurred. Please try again.'
+    'notLoggedIn' : 'You must be logged in to retrieve this information.',
+    'unknown' : 'An unknown error occurred. Please try again.',
+    'userNotFound' : 'No user with that ID could be found.'
 }

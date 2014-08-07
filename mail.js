@@ -14,6 +14,10 @@ module.exports = {
             }
         });
         
+        //this should probably ultimately become a function paramter
+        if (type === 'invite') { var subject = 'FairED Invitation'; }
+        else { var subject = 'FairED Database Notification'; }
+        
         var textPath = __dirname + '/templates/mail/' + type + '/text.txt';
         var richPath = __dirname + '/templates/mail/' + type + '/rich.txt';
         
@@ -36,7 +40,7 @@ module.exports = {
                 var mailOptions = {
                     from: 'FairED Team <FairEDTeam@gmail.com>',
                     to: email,
-                    subject: 'FairED Invitation',
+                    subject: subject,
                     text: textMail,
                     html: richMail
                 };
@@ -51,8 +55,8 @@ module.exports = {
                         return true;
                     }
                 });
-            }
-        }
+            });
+        });
     }
     
 }

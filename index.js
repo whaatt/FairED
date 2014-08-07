@@ -29,6 +29,7 @@ app.use(function(req, res, next) {
     if (!context.state) {
         //initialize state to lacking auth
         context.state = 'unauthenticated'
+        context.ID = 123456789;
     }
     
     //middleware
