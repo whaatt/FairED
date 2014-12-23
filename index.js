@@ -1,6 +1,10 @@
 //grab our package file for information
 var packInfo = require('./package.json');
 
+//node built in mods
+var fs = require('fs')
+var path = require('path');
+
 //load the modules we want
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -38,7 +42,7 @@ app.use(function(req, res, next) {
 
 //send API version on null request
 router.get('/', function (req, res) {
-    res.send({'version' : __dirname});
+    res.send({'version' : packInfo.version});
 });
 
 //get all approved mentors for displaying
@@ -137,7 +141,17 @@ router.post('/features/settings', function(req, res) {
 });
 
 app.use('/api', router); //apply router to API
-app.use(express.static(__dirname + '/public'));
+
+//we want the static files to work under
+//any given subdirectory; if we decide
+//later to use client-side routing this
+//will be entirely necessary
+
+app.use('*', function(req, res, next) {
+    staticPath = __dirname + '/public/' + path.basename(req.params[0]);
+    if (fs.existsSync(staticPath)) { res.sendfile(staticPath); }
+    else { next(); } //skip this middleware and die gracefullly
+});
 
 var port = 54345;
 app.listen(port);
